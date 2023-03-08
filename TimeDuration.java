@@ -2,12 +2,17 @@ public class TimeDuration {
     private int hours;
     private int minutes;
     private int seconds;
-
+    private static int numCreated=0;
     public TimeDuration(int intHours, int intMinutes, int intSeconds){
         hours=intHours;
         minutes=intMinutes;
         seconds=intSeconds;
+        numCreated++;
     }
+
+public static int getNumCreated() {
+    return numCreated;
+}
 
 public String toString(){
     String result="";
@@ -113,10 +118,22 @@ private static boolean numInString(String s){
     }
 }
     public static void main(String[] args) {
-        //TimeDuration time = new TimeDuration(7,2,4);
-        //System.out.println(time.toString());
+        
+    //Basic input
+    TimeDuration time = new TimeDuration(7,2,4);
+    System.out.println(time.toString());
+
+    //colon parseFrom
     String input="12:20:13";
     TimeDuration time2=parseFromString(input);
     System.out.println(time2.toString());
+
+    //hms parseFrom
+    String input2="12 h, 20m, 13 s";
+    TimeDuration time3=parseFromString(input2);
+    System.out.println(time3.toString());
+
+    //num created
+    System.out.println("You have created "+numCreated+" time objects.");
     }
 }
