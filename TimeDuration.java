@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class TimeDuration {
     private int hours;
     private int minutes;
@@ -100,7 +102,29 @@ if(s.indexOf(":")!=-1){
 
     return new TimeDuration(hour, min, sec);
 }
+public boolean equals(Object otherJank) {
+    if (this == otherJank) {
+        return true;
+    }
 
+    if (otherJank == null) {
+        return false;
+    }
+
+    if (this.getClass() != otherJank.getClass()) {
+        return false;
+    }
+
+    TimeDuration other = (TimeDuration) otherJank;
+
+    if (this.hours == other.hours &&
+        this.minutes == other.minutes &&
+        this.seconds == other.seconds) {
+            return true;
+    } else {
+        return false;
+    }
+}
 private static boolean numInString(String s){
     if (s.equals("0") || 
     s.equals("1") || 
@@ -118,18 +142,20 @@ private static boolean numInString(String s){
     }
 }
     public static void main(String[] args) {
-        
+    Scanner s = new Scanner(System.in);
     //Basic input
     TimeDuration time = new TimeDuration(7,2,4);
     System.out.println(time.toString());
 
-    //colon parseFrom
-    String input="12:20:13";
+    //colon parseFrom ex. 7:2:4
+    System.out.println("enter a time: ");
+    String input = s.nextLine();
     TimeDuration time2=parseFromString(input);
     System.out.println(time2.toString());
 
-    //hms parseFrom
-    String input2="12 h, 20m, 13 s";
+    //hms parseFrom ex. 12 h, 20m, 13 s
+    System.out.println("enter a time: ");
+    String input2 = s.nextLine();
     TimeDuration time3=parseFromString(input2);
     System.out.println(time3.toString());
 
