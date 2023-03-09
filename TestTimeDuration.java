@@ -22,9 +22,12 @@ public class TestTimeDuration {
         acual= TimeDuration.parseFromString("2m,4 s");
         assertEquals(expected, acual);
         //Test 5
+        expected= new TimeDuration(7,0,4);
+        acual= TimeDuration.parseFromString("7h,4 s");
+        assertEquals(expected, acual);
+        //Test 5
         expected= new TimeDuration(0,0,4);
         acual= TimeDuration.parseFromString("4 s");
         assertEquals(expected, acual);
-
     }
 }

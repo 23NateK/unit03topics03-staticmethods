@@ -153,7 +153,7 @@ private static boolean numInString(String s){
     TimeDuration time2=parseFromString(input);
     System.out.println(time2.toString());
 
-    //hms parseFrom ex. 12 h, 20m, 13 s
+    //hms parseFrom ex. 7 h, 2m, 4 s;4 s;7h,4 s
     System.out.println("enter a time: ");
     String input2 = s.nextLine();
     TimeDuration time3=parseFromString(input2);
